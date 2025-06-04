@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Student Dashboard{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card p-4 shadow">
+            <h3 class="text-center mb-4">Welcome, {{ request.user.first_name }} <span class="text-muted">(Student) 🟢</span></h3>
+            
+            <ul class="list-group list-group-flush mb-3">
+                <li class="list-group-item">
+                    <strong>Student ID:</strong> {{ profile.student.id }}
+                </li>
+                <li class="list-group-item">
+                    <strong>Email:</strong> {{ request.user.email }}
+                </li>
+                <li class="list-group-item">
+                    <strong>Date of Birth:</strong> {{ profile.date_of_birth }}
+                </li>
+            </ul>
+
+            <a href="{% url 'logout' %}" class="btn btn-outline-danger w-100">Logout</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
